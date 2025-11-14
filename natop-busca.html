@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Busca de Naturezas de Operação</title>
+
+<!-- ESTILO -->
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f4f8;
+  padding: 20px;
+  color: #222;
+}
+
+/* Caixa geral */
+#container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+/* Título */
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Campo de busca */
+#search {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: 0.2s;
+}
+
+#search:focus {
+  border-color: #7a5cff;
+  box-shadow: 0 0 6px rgba(122,92,255,0.4);
+}
+
+/* Itens */
+.item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #ffffff;
+  margin-bottom: 12px;
+  transition: all 0.25s ease;
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  background: #f9f9ff;
+}
+
+.cfop {
+  color: #444;
+  font-size: 14px;
+  margin-top: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<h2>📄 Naturezas de Operação — Busca Instantânea</h2>
+
+<input type="text" id="search" placeholder="Digite para filtrar... (ex: venda, remessa, 5.102, transferência)">
+  
+<div id="lista">
+
+   <!-- Cada item -->
+  <div class="item">
+    <b><u>Venda de Mercadoria</u></b><br>
+    Operação destinada à venda de produtos dentro ou fora do estado.
+    <div class="cfop"><b>CFOP:</b> 5.102 (dentro do estado) • 6.102 (fora do estado)</div>
+  </div>
+
+  <div class="item">
+    <b><u>Venda de Produção do Estabelecimento</u></b><br>
+    Venda de produtos fabricados ou industrializados pela própria empresa.
+    <div class="cfop"><b>CFOP:</b> 5.101 (interno) • 6.101 (interestadual)</div>
+  </div>
+
+  <div class="item">
+    <b><u>Devolução de Compra</u></b><br>
+    Devolução ao fornecedor de mercadorias adquiridas anteriormente.
+    <div class="cfop"><b>CFOP:</b> 5.201 (interna) • 6.201 (interestadual)</div>
+  </div>
+
+  <div class="item">
+    <b><u>Transferência de Mercadoria</u></b><br>
+    Envio de mercadorias entre estabelecimentos da mesma empresa.
+    <div class="cfop"><b>CFOP:</b> 5.151 (interna) • 6.151 (interestadual)</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Industrialização</u></b><br>
+    Materiais enviados a terceiros para serem industrializados.
+    <div class="cfop"><b>CFOP:</b> 5.901 • 6.901</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Industrialização</u></b><br>
+    Entrada da mercadoria após processo de industrialização por terceiros.
+    <div class="cfop"><b>CFOP:</b> 1.902 • 2.902</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Conserto</u></b><br>
+    Saída de mercadorias para garantia, ajuste ou manutenção.
+    <div class="cfop"><b>CFOP:</b> 5.915 • 6.915</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Conserto</u></b><br>
+    Entrada de mercadorias enviadas para reparo.
+    <div class="cfop"><b>CFOP:</b> 1.916 • 2.916</div>
+  </div>
+
+  <div class="item">
+    <b><u>Bonificação / Brinde</u></b><br>
+    Saída de produtos gratuitos vinculados ou não à venda.
+    <div class="cfop"><b>CFOP:</b> 5.910 (interna) • 6.910 (interestadual)</div>
+  </div>
+
+  <div class="item">
+    <b><u>Importação</u></b><br>
+    Entrada de mercadorias provenientes do exterior.
+    <div class="cfop"><b>CFOP:</b> 3.101 • 3.102</div>
+  </div>
+
+  <div class="item">
+    <b><u>Exportação</u></b><br>
+    Saída de mercadorias destinadas ao exterior.
+    <div class="cfop"><b>CFOP:</b> 7.101 • 7.102</div>
+  </div>
+
+  <div class="item">
+    <b><u>Consignação Mercantil – Remessa</u></b><br>
+    Envio de produtos ao consignatário para venda.
+    <div class="cfop"><b>CFOP:</b> 5.917 • 6.917</div>
+  </div>
+
+  <div class="item">
+    <b><u>Consignação Mercantil – Devolução</u></b><br>
+    Retorno de produtos não vendidos pelo consignatário.
+    <div class="cfop"><b>CFOP:</b> 1.917 • 2.917</div>
+  </div>
+
+  <div class="item">
+    <b><u>Doação</u></b><br>
+    Saída sem fins comerciais.
+    <div class="cfop"><b>CFOP:</b> 5.910</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Demonstração</u></b><br>
+    Envio de mercadorias para demonstração.
+    <div class="cfop"><b>CFOP:</b> 5.912 • 6.912</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Demonstração</u></b><br>
+    Retorno de mercadorias enviadas para demonstração.
+    <div class="cfop"><b>CFOP:</b> 1.912 • 2.912</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Exposição ou Feira</u></b><br>
+    Saída de mercadorias destinadas a eventos.
+    <div class="cfop"><b>CFOP:</b> 5.913 • 6.913</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Exposição ou Feira</u></b><br>
+    Retorno de mercadorias enviadas para eventos.
+    <div class="cfop"><b>CFOP:</b> 1.913 • 2.913</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Mostruário</u></b><br>
+    Mercadorias enviadas como mostruário.
+    <div class="cfop"><b>CFOP:</b> 5.918 • 6.918</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Mostruário</u></b><br>
+    Retorno das mercadorias enviadas como mostruário.
+    <div class="cfop"><b>CFOP:</b> 1.918 • 2.918</div>
+  </div>
+
+  <div class="item">
+    <b><u>Venda para Consumidor Final</u></b><br>
+    Venda direta ao consumidor.
+    <div class="cfop"><b>CFOP:</b> 5.102 • 6.102</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Armazenagem</u></b><br>
+    Envio sem transferência de propriedade.
+    <div class="cfop"><b>CFOP:</b> 5.907 • 6.907</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Armazenagem</u></b><br>
+    Retorno de mercadorias enviadas.
+    <div class="cfop"><b>CFOP:</b> 1.907 • 2.907</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Consumo</u></b><br>
+    Mercadoria usada internamente.
+    <div class="cfop"><b>CFOP:</b> 5.556 • 6.556</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa em Garantia</u></b><br>
+    Substituição por defeito.
+    <div class="cfop"><b>CFOP:</b> 5.915 • 6.915</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Garantia</u></b><br>
+    Entrada de item substituído.
+    <div class="cfop"><b>CFOP:</b> 1.916 • 2.916</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Beneficiamento</u></b><br>
+    Envio para beneficiamento.
+    <div class="cfop"><b>CFOP:</b> 5.902 • 6.902</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Beneficiamento</u></b><br>
+    Retorno após beneficiamento.
+    <div class="cfop"><b>CFOP:</b> 1.902 • 2.902</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa para Depósito Fechado</u></b><br>
+    Transferência para depósito fechado.
+    <div class="cfop"><b>CFOP:</b> 5.905 • 6.905</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Depósito Fechado</u></b><br>
+    Retorno de mercadorias armazenadas.
+    <div class="cfop"><b>CFOP:</b> 1.905 • 2.905</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa de Bens para Uso Próprio</u></b><br>
+    Bens enviados para uso interno.
+    <div class="cfop"><b>CFOP:</b> 5.556 • 6.556</div>
+  </div>
+
+  <div class="item">
+    <b><u>Retorno de Bens para Uso Próprio</u></b><br>
+    Entrada de bens usados internamente.
+    <div class="cfop"><b>CFOP:</b> 1.556 • 2.556</div>
+  </div>
+
+  <div class="item">
+    <b><u>Remessa em Consumo no Local do Cliente</u></b><br>
+    Consumo em obras ou serviços externos.
+    <div class="cfop"><b>CFOP:</b> 5.949 • 6.949</div>
+  </div>
+
+  <div class="item">
+    <b><u>Venda para Ativo Imobilizado</u></b><br>
+    Venda para ativo permanente.
+    <div class="cfop"><b>CFOP:</b> 5.551 • 6.551</div>
+  </div>
+
+  <div class="item">
+  <b><u>Remessa para Locação</u></b><br>
+  Envio de bens móveis para locação temporária, sem transferência de propriedade.
+  <div class="cfop"><b>CFOP:</b> 5.904 • 6.904</div>
+</div>
+
+<div class="item">
+  <b><u>Retorno de Locação</u></b><br>
+  Retorno dos bens enviados ao cliente em regime de locação.
+  <div class="cfop"><b>CFOP:</b> 1.904 • 2.904</div>
+</div>
+
+<div class="item">
+  <b><u>Remessa de Amostra Grátis</u></b><br>
+  Envio de amostras sem valor comercial para divulgação ou avaliação.
+  <div class="cfop"><b>CFOP:</b> 5.911 • 6.911</div>
+</div>
+
+<div class="item">
+  <b><u>Retorno de Amostra Grátis</u></b><br>
+  Entrada das amostras enviadas anteriormente quando aplicável.
+  <div class="cfop"><b>CFOP:</b> 1.911 • 2.911</div>
+</div>
+
+<div class="item">
+  <b><u>Remessa para Exportação Indireta</u></b><br>
+  Mercadoria enviada a empresas comerciais exportadoras.
+  <div class="cfop"><b>CFOP:</b> 5.504 • 6.504</div>
+</div>
+
+<div class="item">
+  <b><u>Venda com Entrega por Terceiro</u></b><br>
+  Venda em que a entrega é realizada por transportador contratado.
+  <div class="cfop"><b>CFOP:</b> 5.118 • 6.118</div>
+</div>
+
+<div class="item">
+  <b><u>Remessa para Testes/Análise</u></b><br>
+  Envio de produtos exclusivamente para testes laboratoriais ou técnicos.
+  <div class="cfop"><b>CFOP:</b> 5.920 • 6.920</div>
+</div>
+
+<div class="item">
+  <b><u>Retorno de Testes/Análise</u></b><br>
+  Entrada de produtos enviados para testes ou análises.
+  <div class="cfop"><b>CFOP:</b> 1.920 • 2.920</div>
+</div>
+
+<div class="item">
+  <b><u>Venda à Ordem</u></b><br>
+  Venda realizada a pedido de outra empresa, com entrega para terceiro.
+  <div class="cfop"><b>CFOP:</b> 5.120 • 6.120</div>
+</div>
+
+<div class="item">
+  <b><u>Remessa por Conta e Ordem de Terceiros</u></b><br>
+  Remessa efetuada por determinação de outra empresa responsável pela venda.
+  <div class="cfop"><b>CFOP:</b> 5.120 • 6.120</div>
+</div>
+
+
+</div>
+
+</div>
+
+<!-- JAVASCRIPT (FUNCIONA NO IFRAME!) -->
+<script>
+function normalizar(texto) {
+    return texto
+        .toLowerCase()
+        .normalize("NFD")                 // remove acentos
+        .replace(/[\u0300-\u036f]/g, "")  // remove marcas unicode
+        .replace(/[^\w\s]/g, "")          // remove pontos, hífens, barras
+        .replace(/\s+/g, "");             // remove espaços extras
+}
+
+const search = document.getElementById("search");
+const items = document.querySelectorAll(".item");
+
+search.addEventListener("keyup", function () {
+    let filtro = normalizar(search.value);
+
+    items.forEach(item => {
+        let textoItem = normalizar(item.innerText);
+
+        if (textoItem.includes(filtro)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
+</script>
+
+
+</body>
+</html>
